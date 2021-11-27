@@ -46,7 +46,7 @@ num_feats = [x for x in num_feats if x not in black_list]
 num_feats
 
 
-# In[5]:
+# In[4]:
 
 
 # wykresy dla cech (z df_train), przedtem warto byłoby odrzucić skrajne wartości - było w Starterach - percentile
@@ -54,7 +54,7 @@ num_feats
 df_all[ num_feats ].hist(figsize=(40, 10), bins=50);
 
 
-# In[6]:
+# In[5]:
 
 
 # cechy, które warto zlogarytmować
@@ -67,7 +67,7 @@ df_all['fix assets to assets_log'] = np.log(df_all['fix_assets_to_assets'])
 df_all['total expense /assets_log'] = np.log(df_all['total_expense_/assets'])
 
 
-# In[7]:
+# In[6]:
 
 
 # funckja pomocnicza ze Startera 3
@@ -146,52 +146,11 @@ def save_result(filename, model, threshold=0.1):
     print("Saved: ", output_file)
 
 
-# In[ ]:
 
-
-
-
-
-# In[13]:
+# In[7]:
 
 
 # kilka eksperymentów, najlepszy rezultat na Kaggle - lgb ze Startera 3.
 model = lgb.LGBMClassifier(max_depth=5, n_estimators=100)
 save_result("lgb_threshold_0.1_sprawdzenie.csv", model)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
